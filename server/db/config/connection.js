@@ -1,23 +1,26 @@
 const { Pool } = require('pg');
+
 require('dotenv').config();
 
-let dburl;
-if (!dburl) {throw new Error('DB_URL Not founw');
+let dbUrl = '';
 
-} else {
-  if(process.env.NODE_ENV === 'development') {
-    dburl= process.env.DEV_DB_URL
-  } else if (process.env.NODE_ENV === 'test'){
-    dburl= process.env.TEST_DB_URL
-  } else if (process.env.NODE_ENV === 'production') {
+switch (process.env.NODE_ENV) {
+  case 'production':
     dbUrl = process.env.DB_URL;
-  }
-  
-  
-  const options = {
-    connectionString: dburl,
-    ssl: true,
-  }
-}  
+    break;
+  case 'test':
+    dbUrl = process.env.TEST_DB_URL;
+    break;
+  case 'development':
+    dbUrl = process.env.DEV_DB_URL;
+    break;
+  // default:
+  //   throw new Error('Database Url Not Found!');
+}
+
+const options = {
+  connectionString: dbUrl,
+  ssl: true,
+};
 
 module.exports = new Pool(options);
