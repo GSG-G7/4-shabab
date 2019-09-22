@@ -5,7 +5,7 @@
 
 ## Team Members:
  * Fadi
- * Hashim
+ * Hashem
  * Mossa
  * Fares
 
