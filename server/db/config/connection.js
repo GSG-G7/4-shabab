@@ -2,8 +2,10 @@ const { Pool } = require('pg');
 
 require('dotenv').config();
 
-let dbUrl = '';
+// let dbUrl = '';
+const dbUrl = process.env.DEV_DB_URL;
 
+/*
 switch (process.env.NODE_ENV) {
   case 'production':
     dbUrl = process.env.DB_URL;
@@ -14,9 +16,10 @@ switch (process.env.NODE_ENV) {
   case 'development':
     dbUrl = process.env.DEV_DB_URL;
     break;
-  // default:
-  //   throw new Error('Database Url Not Found!');
+  default:
+    throw new Error('Database Url Not Found!');
 }
+*/
 
 const options = {
   connectionString: dbUrl,

@@ -8,4 +8,6 @@ const insertFakeData = () => {
   return connection.query(sql);
 };
 
+insertFakeData();
+
 module.exports = insertFakeData;
