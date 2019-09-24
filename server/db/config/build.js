@@ -8,5 +8,4 @@ const dbBuild = () => {
   return connection.query(sql).then(console.log('Done')).catch(((err) => console.log(err)));
 };
 
-dbBuild();
 module.exports = dbBuild;
